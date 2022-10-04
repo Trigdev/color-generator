@@ -5,7 +5,7 @@ import Values from "values.js";
 const App = () => {
   const [color, setColor] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
-  const [list, setList] = useState<Values[]>(new Values("#f15025").all(10));
+  const [list, setList] = useState<Values[]>(new Values("#5025f1").all(10));
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
