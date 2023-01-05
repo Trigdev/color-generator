@@ -1,9 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, FC, ReactElement } from "react";
 import { SingleColorProps } from "./App.types";
 import rgbToHex from "./utils";
 
-const SingleColor = ({ rgb, weight, index, hexColor }: SingleColorProps) => {
+const SingleColor: FC<SingleColorProps> = ({
+  rgb,
+  weight,
+  index,
+  hexColor,
+}: SingleColorProps): ReactElement => {
   const [alert, setAlert] = useState<boolean>(false);
   const bcg = rgb.join(",");
   const hex = rgbToHex(...rgb);

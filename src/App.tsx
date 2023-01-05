@@ -1,21 +1,21 @@
-import React, { SyntheticEvent, useState } from "react";
+import React, { SyntheticEvent, useState, FC, ReactElement } from "react";
 import SingleColor from "./SingleColor";
 import Values from "values.js";
 
-const App = () => {
+export interface IApp {}
+
+const App: FC<IApp> = (): ReactElement => {
   const [color, setColor] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
   const [list, setList] = useState<Values[]>(new Values("#5025f1").all(10));
 
-  const handleSubmit = (e: SyntheticEvent) => {
+  const handleSubmit = (e: SyntheticEvent): void => {
     e.preventDefault();
     try {
       let colors = new Values(color).all(10);
       setList(colors);
-      console.log("🚀 ~ file: ~ ", colors);
     } catch (error) {
       setError(true);
-      console.log("🚀 ~ file: ~ ", error);
     }
   };
 
@@ -26,12 +26,12 @@ const App = () => {
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            className={`${error ? "error" : null}`}
+            className={`kunika ${error ? "error" : null}`}
             value={color}
             placeholder="#f15025"
             onChange={(e) => setColor(e.target.value)}
           />
-          <button type="submit" className="btn">
+          <button type="submit" className="button-85 kunika">
             Submit
           </button>
         </form>
